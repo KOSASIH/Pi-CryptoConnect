@@ -4,7 +4,22 @@ The open-source codebase for CryptoConnect, Pi Network's automatic open network 
 
 # Introduction
 
-Pi-CryptoConnect is a cryptocurrency data dashboard that allows users to view and analyze real-time data for various cryptocurrencies. It is built using React, Redux, and the CoinGecko API.
+Welcome to Pi-CryptoConnect, the ultimate solution for secure and easy-to-use cryptocurrency transactions on the Raspberry Pi!
+
+Pi-CryptoConnect is an open-source project that combines the power of the Raspberry Pi with the security and convenience of cryptocurrency transactions. With Pi-CryptoConnect, you can easily send and receive cryptocurrency payments, manage your wallet, and monitor market trends, all from the comfort of your own Raspberry Pi.
+
+Whether you're a seasoned cryptocurrency trader or a newcomer to the world of digital currencies, Pi-CryptoConnect offers a user-friendly interface and robust features to help you manage your assets with confidence. With Pi-CryptoConnect, you can:
+
+Send and receive cryptocurrency payments securely and easily
+Manage your wallet and track your transactions
+Monitor real-time market trends and price movements
+Customize your dashboard with your favorite cryptocurrencies and data
+Access your account from anywhere with remote access capabilities
+Pi-CryptoConnect is built on top of the Raspberry Pi platform, which means you can run it on any Raspberry Pi device with minimal setup and configuration. The project includes a custom-designed user interface that is optimized for the Raspberry Pi's small screen size and touch input.
+
+At its core, Pi-CryptoConnect is a Python-based application that uses a variety of open-source libraries and tools to provide a seamless cryptocurrency transaction experience. The project includes a comprehensive set of test cases and documentation to help you get started and troubleshoot any issues.
+
+Join the Pi-CryptoConnect community today and discover the power of cryptocurrency transactions on the Raspberry Pi!
 
 # Getting Started
 
