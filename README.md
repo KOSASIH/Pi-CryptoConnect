@@ -2,7 +2,7 @@
 
 The open-source codebase for CryptoConnect, Pi Network's automatic open network launcher and management system.
 
-# Pi-CryptoConnect
+# Introduction
 
 Pi-CryptoConnect is a cryptocurrency data dashboard that allows users to view and analyze real-time data for various cryptocurrencies. It is built using React, Redux, and the CoinGecko API.
 
