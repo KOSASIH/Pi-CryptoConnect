@@ -1,11 +1,12 @@
 # src/data/preprocessing.py
-import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.feature_selection import SelectKBest
 from sklearn.impute import SimpleImputer
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from sklearn.preprocessing import StandardScaler
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
 
 class DataPreprocessor:
     def __init__(self, data_path, tokenizer_name, model_name):
@@ -25,12 +26,14 @@ class DataPreprocessor:
             add_special_tokens=True,
             max_length=512,
             return_attention_mask=True,
-            return_tensors='pt'
+            return_tensors="pt",
         )
         return tokenized_data
 
     def extract_features(self, tokenized_data):
-        features = self.model(tokenized_data['input_ids'], attention_mask=tokenized_data['attention_mask'])
+        features = self.model(
+            tokenized_data["input_ids"], attention_mask=tokenized_data["attention_mask"]
+        )
         return features.last_hidden_state[:, 0, :]
 
     def scale_data(self, data):
@@ -49,13 +52,13 @@ class DataPreprocessor:
         return selected_data
 
     def impute_missing_values(self, data):
-        imputer = SimpleImputer(strategy='mean')
+        imputer = SimpleImputer(strategy="mean")
         imputed_data = imputer.fit_transform(data)
         return imputed_data
 
     def preprocess(self):
         data = self.load_data()
-        text_data = data['text']
+        text_data = data["text"]
         tokenized_data = self.preprocess_text(text_data)
         features = self.extract_features(tokenized_data)
         scaled_data = self.scale_data(features)

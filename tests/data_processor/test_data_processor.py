@@ -1,12 +1,15 @@
 # tests/data_processor/test_data_processor.py
 
-import pytest
 from unittest.mock import MagicMock
+
+import pytest
 from data_processor import DataProcessor
+
 
 @pytest.fixture
 def data_processor():
     return DataProcessor()
+
 
 def test_process_data(data_processor):
     # Arrange
@@ -22,6 +25,7 @@ def test_process_data(data_processor):
     # Assert
     assert result == mock_crypto_data
     data_processor.get_crypto_data.assert_called_once()
+
 
 def test_process_data_exception(data_processor):
     # Arrange
