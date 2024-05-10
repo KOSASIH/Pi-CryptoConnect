@@ -34,3 +34,28 @@ exclude:
 [tool.hatch.build.targets.wheel]
 include:
     - crypto_connector/*
+
+# Machine learning libraries
+tensorflow==2.6.0
+transformers==4.11.3
+scikit-learn==0.24.2
+numpy==1.21.2
+pandas==1.3.3
+
+# Testing libraries
+pytest==6.2.5
+pytest-cov==3.0.0
+
+# Natural language processing libraries
+spacy==3.1.3
+spacy-transformers==1.0.4
+
+# Web frameworks
+flask==2.0.2
+
+# User interface libraries
+kivy==2.0.0
+
+# Miscellaneous libraries
+python-dotenv==0.19.2
+tqdm==4.62.3
