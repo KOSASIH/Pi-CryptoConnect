@@ -1,0 +1,36 @@
+# requirements.txt
+
+# Base dependencies
+Flask==2.1.1
+requests==2.27.1
+pytest==6.2.5
+
+# Development dependencies
+pytest-cov==3.0.0
+pytest-mock==3.7.0
+
+# Optional dependencies
+cryptography==37.0.2 ; python_version >= "3.7" and platform_system == "Windows"
+pycryptodome==3.15.0 ; python_version < "3.7" or platform_system != "Windows"
+
+# Version constraints
+# Flask: Only allow versions 2.1.x
+Flask >=2.1.0, <2.2.0
+
+# Pin specific versions
+# requests: Pin to version 2.27.1
+requests ==2.27.1
+
+# Exclude specific versions
+# pytest: Exclude version 6.3.0
+pytest !=6.3.0
+
+# Dependency groups
+# Crypto dependencies: Only install for crypto-related features
+[tool.hatch.build.targets.sdist]
+exclude:
+    - crypto_connector/*
+
+[tool.hatch.build.targets.wheel]
+include:
+    - crypto_connector/*
