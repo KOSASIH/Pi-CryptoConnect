@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional
 from node import Node
 from transaction import Transaction
 
+
 class Blockchain:
     """
     A full-featured blockchain class with support for advanced consensus algorithms, distributed ledger technology, and distributed identity management.
@@ -24,6 +25,7 @@ class Blockchain:
         chain (List[Dict[str, Any]]): The list of blocks in the blockchain.
         pending_transactions (List[Transaction]): The list of pending transactions.
     """
+
     def __init__(
         self,
         node: Node,
@@ -46,15 +48,17 @@ class Blockchain:
             dict: The genesis block.
         """
         return {
-            'index': 0,
-            'timestamp': int(time.time()),
-            'transactions': [],
-            'previous_hash': '0' * 64,
-            'hash': self.calculate_hash(0, [], '0' * 64),
-            'nonce': 0,
+            "index": 0,
+            "timestamp": int(time.time()),
+            "transactions": [],
+            "previous_hash": "0" * 64,
+            "hash": self.calculate_hash(0, [], "0" * 64),
+            "nonce": 0,
         }
 
-    def calculate_hash(self, index: int, transactions: List[Transaction], previous_hash: str) -> str:
+    def calculate_hash(
+        self, index: int, transactions: List[Transaction], previous_hash: str
+    ) -> str:
         """
         Calculate the hash of a block.
 
@@ -68,9 +72,9 @@ class Blockchain:
         """
         data = json.dumps(
             {
-                'index': index,
-                'transactions': transactions,
-                'previous_hash': previous_hash,
+                "index": index,
+                "transactions": transactions,
+                "previous_hash": previous_hash,
             },
             sort_keys=True,
         ).encode()
@@ -82,16 +86,18 @@ class Blockchain:
         """
         if self.pending_transactions:
             block = {
-                'index': len(self.chain),
-                'timestamp': int(time.time()),
-                'transactions': self.pending_transactions,
-                'previous_hash': self.chain[-1]['hash'],
-                'nonce': 0,
+                "index": len(self.chain),
+                "timestamp": int(time.time()),
+                "transactions": self.pending_transactions,
+                "previous_hash": self.chain[-1]["hash"],
+                "nonce": 0,
             }
             self.pending_transactions = []
             while not self.is_block_valid(block):
-                block['nonce'] += 1
-            block['hash'] = self.calculate_hash(block['index'], block['transactions'], block['previous_hash'])
+                block["nonce"] += 1
+            block["hash"] = self.calculate_hash(
+                block["index"], block["transactions"], block["previous_hash"]
+            )
             self.chain.append(block)
 
     def is_block_valid(self, block: Dict[str, Any]) -> bool:
@@ -105,9 +111,12 @@ class Blockchain:
             bool: Whether the block is valid.
         """
         if (
-            block['index'] != len(self.chain)
-            or block['previous_hash'] != self.chain[-1]['hash']
-            or block['hash'] != self.calculate_hash(block['index'], block['transactions'], block['previous_hash'])
+            block["index"] != len(self.chain)
+            or block["previous_hash"] != self.chain[-1]["hash"]
+            or block["hash"]
+            != self.calculate_hash(
+                block["index"], block["transactions"], block["previous_hash"]
+            )
         ):
             return False
         return True
@@ -132,10 +141,10 @@ class Blockchain:
             current_block = self.chain[i]
             previous_block = self.chain[i - 1]
 
-            if current_block['hash'] != self.calculate_hash(
-                current_block['index'],
-                current_block['transactions'],
-                previous_block['hash'],
+            if current_block["hash"] != self.calculate_hash(
+                current_block["index"],
+                current_block["transactions"],
+                previous_block["hash"],
             ):
                 return False
         return True
@@ -158,8 +167,8 @@ class Blockchain:
             if response is None:
                 continue
 
-            length = response['length']
-            chain = response['chain']
+            length = response["length"]
+            chain = response["chain"]
 
             if length > max_length and self.chain_is_valid(chain):
                 max_length = length
@@ -185,10 +194,10 @@ class Blockchain:
             current_block = chain[i]
             previous_block = chain[i - 1]
 
-            if current_block['hash'] != self.calculate_hash(
-                current_block['index'],
-                current_block['transactions'],
-                previous_block['hash'],
+            if current_block["hash"] != self.calculate_hash(
+                current_block["index"],
+                current_block["transactions"],
+                previous_block["hash"],
             ):
                 return False
         return True
