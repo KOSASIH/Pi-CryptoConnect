@@ -3,6 +3,7 @@ import json
 import time
 from typing import Any, Dict, Optional
 
+
 class Transaction:
     """
     A full-featured transaction class with support for advanced cryptography and digital signatures.
@@ -21,6 +22,7 @@ class Transaction:
         timestamp (float): The timestamp of the transaction.
         hash (str): The hash of the transaction.
     """
+
     def __init__(
         self,
         sender: str,
@@ -44,10 +46,10 @@ class Transaction:
         """
         data = json.dumps(
             {
-                'sender': self.sender,
-                'receiver': self.receiver,
-                'amount': self.amount,
-                'timestamp': self.timestamp,
+                "sender": self.sender,
+                "receiver": self.receiver,
+                "amount": self.amount,
+                "timestamp": self.timestamp,
             },
             sort_keys=True,
         ).encode()
@@ -61,12 +63,12 @@ class Transaction:
             Dict[str, Any]: The transaction as a dictionary.
         """
         return {
-            'sender': self.sender,
-            'receiver': self.receiver,
-            'amount': self.amount,
-            'timestamp': self.timestamp,
-            'signature': self.signature,
-            'hash': self.hash,
+            "sender": self.sender,
+            "receiver": self.receiver,
+            "amount": self.amount,
+            "timestamp": self.timestamp,
+            "signature": self.signature,
+            "hash": self.hash,
         }
 
     def sign(self, private_key: str) -> None:
@@ -78,10 +80,10 @@ class Transaction:
         """
         message = json.dumps(
             {
-                'sender': self.sender,
-                'receiver': self.receiver,
-                'amount': self.amount,
-                'timestamp': self.timestamp,
+                "sender": self.sender,
+                "receiver": self.receiver,
+                "amount": self.amount,
+                "timestamp": self.timestamp,
             },
             sort_keys=True,
         ).encode()
@@ -100,10 +102,10 @@ class Transaction:
         """
         message = json.dumps(
             {
-                'sender': self.sender,
-                'receiver': self.receiver,
-                'amount': self.amount,
-                'timestamp': self.timestamp,
+                "sender": self.sender,
+                "receiver": self.receiver,
+                "amount": self.amount,
+                "timestamp": self.timestamp,
             },
             sort_keys=True,
         ).encode()
