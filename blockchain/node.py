@@ -1,8 +1,10 @@
+from typing import Dict, List
+
 import requests
-from typing import List, Dict
+from transaction import Transaction
 
 from blockchain import Blockchain
-from transaction import Transaction
+
 
 class Node:
     """
@@ -19,6 +21,7 @@ class Node:
         blockchain (Blockchain): The blockchain object that will be managed by the node.
         neighbors (List[str]): The list of neighboring nodes.
     """
+
     def __init__(self, hostname: str, port: int, blockchain: Blockchain):
         self.hostname = hostname
         self.port = port
@@ -42,7 +45,7 @@ class Node:
             hostname (str): The hostname of the neighboring node.
             port (int): The port number of the neighboring node.
         """
-        self.neighbors.append(f'http://{hostname}:{port}')
+        self.neighbors.append(f"http://{hostname}:{port}")
 
     def remove_neighbor(self, hostname: str, port: int) -> None:
         """
@@ -52,7 +55,7 @@ class Node:
             hostname (str): The hostname of the neighboring node.
             port (int): The port number of the neighboring node.
         """
-        self.neighbors.remove(f'http://{hostname}:{port}')
+        self.neighbors.remove(f"http://{hostname}:{port}")
 
     def request_blockchain(self) -> Optional[Dict[str, Any]]:
         """
@@ -61,7 +64,7 @@ class Node:
         Returns:
             Optional[Dict[str, Any]]: The blockchain data, if available.
         """
-        response = requests.get(f'http://{self.hostname}:{self.port}/blockchain')
+        response = requests.get(f"http://{self.hostname}:{self.port}/blockchain")
 
         if response.status_code == 200:
             return response.json()
@@ -76,7 +79,7 @@ class Node:
             transaction (Transaction): The transaction to be broadcasted.
         """
         for neighbor in self.neighbors:
-            requests.post(f'{neighbor}/transaction', json=transaction.to_dict())
+            requests.post(f"{neighbor}/transaction", json=transaction.to_dict())
 
     def broadcast_block(self, block: Dict[str, Any]) -> None:
         """
@@ -86,7 +89,7 @@ class Node:
             block (Dict[str, Any]): The block to be broadcasted.
         """
         for neighbor in self.neighbors:
-            requests.post(f'{neighbor}/block', json=block)
+            requests.post(f"{neighbor}/block", json=block)
 
     def validate_transaction(self, transaction: Transaction) -> bool:
         """
