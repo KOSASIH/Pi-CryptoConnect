@@ -2,7 +2,9 @@
 import torch
 import torch.nn as nn
 from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
 from src.data import DataPreprocessor
+
 
 class ModelInferencer:
     def __init__(self, model_name, tokenizer_name, test_data_path, batch_size):
@@ -12,14 +14,18 @@ class ModelInferencer:
         self.batch_size = batch_size
         self.tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
         self.model = AutoModelForSequenceClassification.from_pretrained(model_name)
-        self.preprocessor = DataPreprocessor(self.test_data_path, self.tokenizer_name, self.model_name)
+        self.preprocessor = DataPreprocessor(
+            self.test_data_path, self.tokenizer_name, self.model_name
+        )
 
     def preprocess_data(self):
         self.test_data = self.preprocessor.preprocess()
 
     def create_data_loader(self, data, batch_size):
         tensor_data = torch.tensor(data)
-        data_loader = torch.utils.data.DataLoader(tensor_data, batch_size=batch_size, shuffle=False)
+        data_loader = torch.utils.data.DataLoader(
+            tensor_data, batch_size=batch_size, shuffle=False
+        )
         return data_loader
 
     def infer(self):
@@ -37,4 +43,4 @@ class ModelInferencer:
                 predicted = torch.argmax(logits, dim=1)
                 total_correct += (predicted == labels).sum().item()
             accuracy = total_correct / len(self.test_data)
-            print(f'Test Accuracy: {accuracy:.4f}')
+            print(f"Test Accuracy: {accuracy:.4f}")

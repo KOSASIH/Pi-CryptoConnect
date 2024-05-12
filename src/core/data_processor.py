@@ -1,10 +1,14 @@
 # core/data_processor.py
-from typing import List, Dict
+from typing import Dict, List
+
 from .models import CryptoCurrency
+
 
 class DataProcessor:
     @staticmethod
-    def process_cryptocurrency_prices(prices: List[Dict[str, float]]) -> List[CryptoCurrency]:
+    def process_cryptocurrency_prices(
+        prices: List[Dict[str, float]],
+    ) -> List[CryptoCurrency]:
         return [
             CryptoCurrency(
                 name=price["name"],
@@ -15,7 +19,9 @@ class DataProcessor:
         ]
 
     @staticmethod
-    def process_cryptocurrencies_prices(prices: Dict[str, Dict[str, float]]) -> List[CryptoCurrency]:
+    def process_cryptocurrencies_prices(
+        prices: Dict[str, Dict[str, float]],
+    ) -> List[CryptoCurrency]:
         return [
             CryptoCurrency(
                 name=price["name"],

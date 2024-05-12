@@ -1,21 +1,29 @@
 # core/crypto_connector.py
-import requests
-import json
-import hmac
 import hashlib
-from typing import Optional
+import hmac
+import json
 from datetime import datetime
+from typing import Optional
+
+import requests
+
 
 class CryptoConnector:
-    def __init__(self, api_key: str, api_secret: str, base_url: str = "https://api.example.com"):
+    def __init__(
+        self, api_key: str, api_secret: str, base_url: str = "https://api.example.com"
+    ):
         self.api_key = api_key
         self.api_secret = api_secret
         self.base_url = base_url
 
     def _get_signature(self, message: str) -> str:
-        return hmac.new(self.api_secret.encode(), message.encode(), hashlib.sha256).hexdigest()
+        return hmac.new(
+            self.api_secret.encode(), message.encode(), hashlib.sha256
+        ).hexdigest()
 
-    def _request(self, method: str, endpoint: str, params: Optional[dict] = None) -> dict:
+    def _request(
+        self, method: str, endpoint: str, params: Optional[dict] = None
+    ) -> dict:
         url = f"{self.base_url}/{endpoint}"
         headers = {
             "Content-Type": "application/json",
