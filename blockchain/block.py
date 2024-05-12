@@ -1,4 +1,7 @@
 # Use type hints and docstrings for better code readability
+import secrets
+
+
 def create_block(index: int, previous_hash: str, transactions: list) -> dict:
     """
     Create a new block and add it to the blockchain.
@@ -13,8 +16,9 @@ def create_block(index: int, previous_hash: str, transactions: list) -> dict:
     """
     # ...
 
+
 # Use a more secure random number generator
-import secrets
+
 
 def generate_private_key() -> str:
     """
