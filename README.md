@@ -36,11 +36,13 @@ To get started with Pi-CryptoConnect, follow these steps:
 ```bash
 1. npm install
 ```
+
 3. Create a .env file in the root directory with the following content:
 
 ```bash
 1. REACT_APP_COINGECKO_API_KEY=<your_api_key>
 ```
+
 Replace <your_api_key> with your CoinGecko API key.
 
 4. Start the development server:
