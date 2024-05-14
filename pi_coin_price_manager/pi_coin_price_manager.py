@@ -1,6 +1,7 @@
 import time
-from exchanges.okex import OKEx
+
 from exchanges.indodax import Indodax
+from exchanges.okex import OKEx
 
 # Initialize exchange instances with API credentials
 okex = OKEx("YOUR_API_KEY", "YOUR_API_SECRET", "YOUR_PASSPHRASE")
@@ -9,9 +10,12 @@ indodax = Indodax("YOUR_API_KEY", "YOUR_API_SECRET")
 # List of exchanges
 exchanges = [okex, indodax]
 
+
 # Function to update Pi Coin price
 def update_pi_coin_price(exchanges: List[Indodax or OKEx]):
-    pi_coin_symbol = "PI_USDT"  # Replace with the actual Pi Coin symbol on each exchange
+    pi_coin_symbol = (
+        "PI_USDT"  # Replace with the actual Pi Coin symbol on each exchange
+    )
 
     for exchange in exchanges:
         try:
@@ -27,11 +31,13 @@ def update_pi_coin_price(exchanges: List[Indodax or OKEx]):
         except Exception as e:
             print(f"Error updating Pi Coin price on {exchange.__class__.__name__}: {e}")
 
+
 # Function to set the price
 def set_price(exchange: Indodax or OKEx, symbol: str, price: float):
     # Implement the set_price method for each exchange
     # For example, OKEx and Indodax may have different methods for setting the price
     pass
+
 
 # Schedule the function to run periodically
 while True:
