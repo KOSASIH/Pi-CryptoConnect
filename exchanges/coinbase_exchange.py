@@ -1,11 +1,13 @@
 # pi_cryptoconnect/exchanges/coinbase_exchange.py
 
 import logging
-import requests
-from typing import List, Dict, Optional
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+import requests
 
 logging.basicConfig(level=logging.INFO)
+
 
 class CoinbaseExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -15,16 +17,15 @@ class CoinbaseExchange:
         self.base_url = "https://api.coinbase.com/v2"
 
     def _get_headers(self) -> Dict[str, str]:
-        return {
-            "Authorization": f"Bearer {self.api_key}",
-            "CB-VERSION": "2021-08-07"
-        }
+        return {"Authorization": f"Bearer {self.api_key}", "CB-VERSION": "2021-08-07"}
 
     def _handle_response(self, response: requests.Response) -> List[Dict]:
         response.raise_for_status()
         return response.json()["data"]["candles"]
 
-    def get_historical_klines(self, symbol: str, interval: str, start_time: str, end_time: str) -> List[Dict]:
+    def get_historical_klines(
+        self, symbol: str, interval: str, start_time: str, end_time: str
+    ) -> List[Dict]:
         """
         Retrieves historical klines data from Coinbase.
 
@@ -38,11 +39,7 @@ class CoinbaseExchange:
             List[Dict]: A list of dictionaries containing the klines data.
         """
         url = f"{self.base_url}/products/{symbol}/candles"
-        params = {
-            "granularity": interval,
-            "start": start_time,
-            "end": end_time
-        }
+        params = {"granularity": interval, "start": start_time, "end": end_time}
         headers = self._get_headers()
 
         try:
@@ -70,7 +67,9 @@ class CoinbaseExchange:
             logging.error(f"Error fetching data: {e}")
             raise
 
-    def place_order(self, symbol: str, side: str, quantity: float, price: float) -> Dict:
+    def place_order(
+        self, symbol: str, side: str, quantity: float, price: float
+    ) -> Dict:
         """
         Places an order on Coinbase.
 
@@ -90,7 +89,7 @@ class CoinbaseExchange:
             "side": side,
             "size": str(quantity),
             "price": str(price),
-            "type": "limit"
+            "type": "limit",
         }
 
         try:
