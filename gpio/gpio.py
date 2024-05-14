@@ -13,6 +13,7 @@ GPIO.setup(PIN_1, GPIO.OUT)
 GPIO.setup(PIN_2, GPIO.OUT)
 GPIO.setup(PIN_3, GPIO.OUT)
 
+
 def switch_on(pin):
     """Switch on a GPIO pin."""
     if pin in [PIN_1, PIN_2, PIN_3]:
@@ -20,12 +21,14 @@ def switch_on(pin):
     else:
         raise ValueError(f"Invalid pin number: {pin}")
 
+
 def switch_off(pin):
     """Switch off a GPIO pin."""
     if pin in [PIN_1, PIN_2, PIN_3]:
         GPIO.output(pin, GPIO.LOW)
     else:
         raise ValueError(f"Invalid pin number: {pin}")
+
 
 def get_state(pin):
     """Get the current state of a GPIO pin."""
