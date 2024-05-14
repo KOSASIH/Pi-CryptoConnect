@@ -1,8 +1,11 @@
 import requests
 
+
 def get_pi_coin_price():
     # Set the CoinGecko API endpoint
-    url = "https://api.coingecko.com/api/v3/simple/price?ids=pi-network&vs_currencies=usd"
+    url = (
+        "https://api.coingecko.com/api/v3/simple/price?ids=pi-network&vs_currencies=usd"
+    )
 
     # Send the request to get the Pi coin price
     response = requests.get(url)
@@ -31,6 +34,7 @@ def get_pi_coin_price():
             print("Failed to set Pi coin price:", response.text)
     else:
         print("Failed to get Pi coin price:", response.text)
+
 
 # Call the get_pi_coin_price function
 get_pi_coin_price()
