@@ -1,5 +1,7 @@
 import psycopg2
+
 from .models import StateChange
+
 
 def connect_to_database():
     """Connect to the PostgreSQL database.
@@ -12,9 +14,10 @@ def connect_to_database():
         user="myuser",
         password="mypassword",
         host="localhost",
-        port="5432"
+        port="5432",
     )
     return conn
+
 
 def save_state_change(entity_id, entity_type, state, user):
     """Save a state change to the database.
@@ -29,9 +32,10 @@ def save_state_change(entity_id, entity_type, state, user):
         with conn.cursor() as cur:
             cur.execute(
                 "INSERT INTO statechange (entity_id, entity_type, state, user_id) VALUES (%s, %s, %s, %s)",
-                (entity_id, entity_type, state, user.id)
+                (entity_id, entity_type, state, user.id),
             )
             conn.commit()
+
 
 def get_state_history(entity_id, entity_type):
     """Get the state history for a given entity.
@@ -47,18 +51,20 @@ def get_state_history(entity_id, entity_type):
         with conn.cursor() as cur:
             cur.execute(
                 "SELECT * FROM statechange WHERE entity_id = %s AND entity_type = %s ORDER BY timestamp",
-                (entity_id, entity_type)
+                (entity_id, entity_type),
             )
             rows = cur.fetchall()
 
     state_changes = []
     for row in rows:
-        state_changes.append({
-            "entity_id": row[1],
-            "entity_type": row[2],
-            "state": row[3],
-            "user": User.objects.get(id=row[4]),
-            "timestamp": row[5]
-        })
+        state_changes.append(
+            {
+                "entity_id": row[1],
+                "entity_type": row[2],
+                "state": row[3],
+                "user": User.objects.get(id=row[4]),
+                "timestamp": row[5],
+            }
+        )
 
     return state_changes
