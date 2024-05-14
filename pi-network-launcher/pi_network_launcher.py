@@ -13,7 +13,7 @@ API_ENDPOINT = "https://api.pi.network/v1"
 API_KEY = "YOUR_API_KEY_HERE"
 
 # Set mainnet launch parameters
-MAINNET_LAUNCH_DATE = "2023-03-15T00:00:00Z"
+MAINNET_LAUNCH_DATE = "2024-06-01T00:00:00Z"
 MAINNET_LAUNCH_BLOCK_HEIGHT = 000000
 
 # Function to get current block height
