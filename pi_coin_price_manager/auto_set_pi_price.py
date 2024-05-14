@@ -1,5 +1,6 @@
 import requests
 
+
 def set_pi_coin_price(price):
     # Set the Pi coin price on global exchanges
     url = "https://api.globalexchanges.com/set_price"
@@ -10,6 +11,7 @@ def set_pi_coin_price(price):
         print("Pi coin price successfully set to $314.159")
     else:
         print("Failed to set Pi coin price")
+
 
 # Set the Pi coin price to $314.159
 set_pi_coin_price(314.159)
