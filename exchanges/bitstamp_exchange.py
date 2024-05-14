@@ -1,11 +1,13 @@
 # pi_cryptoconnect/bitstamp_exchange.py
 
 import logging
-import requests
-from typing import List, Dict, Optional
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+import requests
 
 logging.basicConfig(level=logging.INFO)
+
 
 class BitstampExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -15,15 +17,15 @@ class BitstampExchange:
         self.base_url = "https://www.bitstamp.net/api"
 
     def _get_headers(self) -> Dict[str, str]:
-        return {
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
+        return {"Content-Type": "application/x-www-form-urlencoded"}
 
     def _handle_response(self, response: requests.Response) -> List[Dict]:
         response.raise_for_status()
         return response.json()["data"]
 
-    def get_historical_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> List[Dict]:
+    def get_historical_klines(
+        self, symbol: str, interval: str, start_time: int, end_time: int
+    ) -> List[Dict]:
         """
         Retrieves historical klines data from Bitstamp.
 
@@ -37,11 +39,7 @@ class BitstampExchange:
             List[Dict]: A list of dictionaries containing the klines data.
         """
         url = f"{self.base_url}/ticker/{symbol}"
-        params = {
-            "period": interval,
-            "start": start_time,
-            "end": end_time
-        }
+        params = {"period": interval, "start": start_time, "end": end_time}
         headers = self._get_headers()
 
         try:
@@ -70,7 +68,9 @@ class BitstampExchange:
             logging.error(f"Error fetching data: {e}")
             raise
 
-    def place_order(self, symbol: str, side: str, quantity: float, price: float) -> Dict:
+    def place_order(
+        self, symbol: str, side: str, quantity: float, price: float
+    ) -> Dict:
         """
         Places an order on Bitstamp.
 
@@ -90,7 +90,7 @@ class BitstampExchange:
             "amount": str(quantity),
             "price": str(price),
             "symbol": symbol,
-            "type": "limit" if side == "buy" else "limit_sell"
+            "type": "limit" if side == "buy" else "limit_sell",
         }
 
         try:
