@@ -1,11 +1,13 @@
 # pi_cryptoconnect/exchanges/huobi_exchange.py
 
 import logging
-import requests
-from typing import List, Dict, Optional
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+import requests
 
 logging.basicConfig(level=logging.INFO)
+
 
 class HuobiExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -15,34 +17,33 @@ class HuobiExchange:
         self.base_url = "https://api.huobi.pro/v1"
 
     def _get_headers(self) -> Dict[str, str]:
-        return {
-            "Api-Key": self.api_key,
-            "Api-Secret-Key": self.api_secret
-        }
+        return {"Api-Key": self.api_key, "Api-Secret-Key": self.api_secret}
 
     def _handle_response(self, response: requests.Response) -> List[Dict]:
         response.raise_for_status()
         return response.json()
 
-    def get_historical_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> List[Dict]:
+    def get_historical_klines(
+        self, symbol: str, interval: str, start_time: int, end_time: int
+    ) -> List[Dict]:
         """
-        Retrieves historical klines data from Huobi.
+                Retrieves historical klines data from Huobi.
 
-        Args:
-            symbol (str): The symbol to retrieve data for.
-            interval (str): The interval of the klines data.
-            start_time (int): The start time of the data range.
-            end_time (int): The end time of the data range.
+                Args:
+                    symbol (str): The symbol to retrieve data for.
+                    interval (str): The interval of the klines data.
+                    start_time (int): The start time of the data range.
+                    end_time (int): The end time of the data range.
 
-Returns:
-            List[Dict]: A list of dictionaries containing the klines data.
+        Returns:
+                    List[Dict]: A list of dictionaries containing the klines data.
         """
         url = f"{self.base_url}/klines"
         params = {
             "symbol": symbol,
             "period": interval,
             "start-time": start_time,
-            "end-time": end_time
+            "end-time": end_time,
         }
         headers = self._get_headers()
 
@@ -70,7 +71,9 @@ Returns:
             logging.error(f"Error fetching account info: {e}")
             raise
 
-    def place_order(self, symbol: str, side: str, quantity: float, price: float) -> Dict:
+    def place_order(
+        self, symbol: str, side: str, quantity: float, price: float
+    ) -> Dict:
         """
         Places an order on Huobi.
 
@@ -89,7 +92,7 @@ Returns:
             "type": "limit",
             "side": side,
             "amount": quantity,
-            "price": price
+            "price": price,
         }
         headers = self._get_headers()
 
