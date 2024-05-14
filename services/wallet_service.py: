@@ -1,0 +1,53 @@
+# services/wallet_service.py
+
+import json
+from typing import Dict, Optional
+
+from config.constants import Currency
+from models.user import User
+
+class WalletService:
+    """Wallet service"""
+    def __init__(self, user: User):
+        self.user = user
+
+    def get_balance(self) -> Optional[int]:
+        """Get the balance of the user's wallet"""
+        return self.user.wallet.get('balance', 0)
+
+    def send_transaction(self, recipient: str, amount: int) -> bool:
+        """Send a transaction from the user's wallet to the recipient"""
+        if self.user.wallet and self.user.wallet.get('address'):
+            # Call the Pi Network API to send the transaction
+            api = PiNetworkApi()
+            success = api.send_transaction(self.user, recipient, amount)
+            if success:
+                # Update the user's wallet balance
+                self.user.wallet['balance'] -= amount
+                return True
+        else:
+            print('User does not have a wallet')
+        return False
+
+    def get_transaction_history(self) -> Optional[List[Dict]]:
+        """Get the transaction history of the user's wallet"""
+        if self.user.wallet and self.user.wallet.get('address'):
+            # Call the Pi Network API to get the transaction history
+            api = PiNetworkApi()
+            transaction_history = api.get_transaction_history(self.user)
+            return transaction_history
+        else:
+            print('User does not have a wallet')
+            return None
+
+    def generate_wallet(self):
+        """Generate a new wallet for the user"""
+        self.user.generate_wallet()
+        # Save the user's wallet to the database
+        self.user.save()
+
+    def update_wallet(self, wallet: Dict):
+        """Update the user's wallet"""
+        self.user.wallet = wallet
+        # Save the user's wallet to the database
+        self.user.save()
