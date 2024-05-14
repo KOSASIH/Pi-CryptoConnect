@@ -1,5 +1,6 @@
 import requests
 
+
 def open_mainnet():
     # Set the Pi Network API endpoint
     url = "https://api.pi-network.com/open-mainnet"
@@ -15,6 +16,7 @@ def open_mainnet():
         print("Mainnet opened successfully")
     else:
         print("Failed to open mainnet:", response.text)
+
 
 # Call the open_mainnet function
 open_mainnet()
