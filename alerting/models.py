@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class AlertRule(models.Model):
     """A class representing an alert rule."""
 
