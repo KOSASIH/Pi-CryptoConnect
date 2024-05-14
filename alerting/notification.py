@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 
+
 def send_email_notification(to, subject, body):
     """Send an email notification.
 
@@ -27,6 +28,7 @@ def send_email_notification(to, subject, body):
     except Exception as e:
         print(f"Error sending email notification: {e}")
 
+
 def send_sms_notification(to, message):
     """Send an SMS notification.
 
@@ -37,9 +39,9 @@ def send_sms_notification(to, message):
     # TODO: Implement this
     pass
 
+
 def check_alert_rules():
-    """Check the alert rules and send notifications if necessary.
-    """
+    """Check the alert rules and send notifications if necessary."""
     alert_rules = AlertRule.objects.all()
 
     for alert_rule in alert_rules:
