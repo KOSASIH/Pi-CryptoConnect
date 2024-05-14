@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class User(models.Model):
     """A class representing a user."""
 
@@ -14,6 +15,7 @@ class User(models.Model):
         """Return a string representation of the user."""
         return self.username
 
+
 class Role(models.Model):
     """A class representing a user role."""
 
@@ -25,6 +27,7 @@ class Role(models.Model):
     def __str__(self):
         """Return a string representation of the role."""
         return self.name
+
 
 class Permission(models.Model):
     """A class representing a permission."""
