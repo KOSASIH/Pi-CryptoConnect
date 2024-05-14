@@ -1,5 +1,7 @@
-import requests
 import time
+
+import requests
+
 
 def set_pi_coin_price(price):
     # Set the Pi coin price on global exchanges
@@ -11,6 +13,7 @@ def set_pi_coin_price(price):
         print("Pi coin price set to:", price)
     else:
         print("Failed to set Pi coin price:", response.text)
+
 
 # Set the Pi coin price to $314.159
 set_pi_coin_price(314.159)
