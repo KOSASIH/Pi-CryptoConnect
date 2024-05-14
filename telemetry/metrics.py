@@ -1,5 +1,6 @@
 import time
 
+
 def collect_metrics():
     """Collect metrics related to the GPIO pins."""
     metrics = {
@@ -12,6 +13,7 @@ def collect_metrics():
     }
     return metrics
 
+
 def get_on_count(pin):
     """Get the number of times a GPIO pin has been switched on."""
     if pin in [PIN_1, PIN_2, PIN_3]:
@@ -20,6 +22,7 @@ def get_on_count(pin):
         return on_count
     else:
         raise ValueError(f"Invalid pin number: {pin}")
+
 
 def get_state_history(pin):
     """Get the history of states for a GPIO pin."""
