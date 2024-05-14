@@ -1,11 +1,13 @@
 # pi_cryptoconnect/bittrex_exchange.py
 
 import logging
-import requests
-from typing import List, Dict, Optional
 from datetime import datetime, timedelta
+from typing import Dict, List, Optional
+
+import requests
 
 logging.basicConfig(level=logging.INFO)
+
 
 class BittrexExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -15,13 +17,13 @@ class BittrexExchange:
         self.base_url = "https://api.bittrex.com/v3"
 
     def _get_headers(self) -> Dict[str, str]:
-        return {
-            "Content-Type": "application/json"
-        }
+        return {"Content-Type": "application/json"}
 
     def _generate_signature(self, url: str, data: Dict) -> str:
         message = f"{url}\n{self._encode_data(data)}".encode()
-        signature = hmac.new(self.api_secret.encode(), message, hashlib.sha512).hexdigest()
+        signature = hmac.new(
+            self.api_secret.encode(), message, hashlib.sha512
+        ).hexdigest()
         return signature
 
     def _encode_data(self, data: Dict) -> str:
@@ -31,7 +33,9 @@ class BittrexExchange:
         response.raise_for_status()
         return response.json()["result"]
 
-    def get_historical_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> List[Dict]:
+    def get_historical_klines(
+        self, symbol: str, interval: str, start_time: int, end_time: int
+    ) -> List[Dict]:
         """
         Retrieves historical klines data from Bittrex.
 
@@ -50,13 +54,15 @@ class BittrexExchange:
             "interval": interval,
             "startTime": start_time,
             "endTime": end_time,
-            "take": 1000
+            "take": 1000,
         }
         headers = self._get_headers()
         signature = self._generate_signature(url, data)
 
         try:
-            response = self.session.get(url, params=data, headers={**headers, "apisign": signature})
+            response = self.session.get(
+                url, params=data, headers={**headers, "apisign": signature}
+            )
             return self._handle_response(response)
         except requests.exceptions.RequestException as e:
             logging.error(f"Error fetching data: {e}")
@@ -81,7 +87,9 @@ class BittrexExchange:
             logging.error(f"Error fetching data: {e}")
             raise
 
-    def place_order(self, symbol: str, side: str, quantity: float, price: float) -> Dict:
+    def place_order(
+        self, symbol: str, side: str, quantity: float, price: float
+    ) -> Dict:
         """
         Places an order on Bittrex.
 
@@ -98,10 +106,11 @@ class BittrexExchange:
         headers = self._get_headers()
         headers["Authorization"] = f"Bearer {self.api_key}"
         data = {
-            "marketSymbol": symbol,"quantity": str(quantity),
+            "marketSymbol": symbol,
+            "quantity": str(quantity),
             "limit": str(price),
             "orderType": "LIMIT" if side == "buy" else "LIMIT_SELL",
-            "timeInForce": "GOOD_TILL_CANCELED"
+            "timeInForce": "GOOD_TILL_CANCELED",
         }
 
         try:
