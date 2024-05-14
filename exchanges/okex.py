@@ -1,10 +1,12 @@
 # exchanges/okex.py
-import hmac
 import hashlib
-import time
-import requests
+import hmac
 import json
+import time
 from typing import Dict, List
+
+import requests
+
 
 class OKEx:
     """OKEx exchange implementation."""
@@ -25,7 +27,9 @@ class OKEx:
         ts = int(time.time() * 1000)
         query_string = "&".join([f"{k}={v}" for k, v in sorted(data.items())])
         message = f"{ts}\n{method}\n{endpoint}\n{query_string}"
-        signature = hmac.new(self.api_secret.encode(), message.encode(), hashlib.sha256).hexdigest()
+        signature = hmac.new(
+            self.api_secret.encode(), message.encode(), hashlib.sha256
+        ).hexdigest()
 
         return f"{ts}\n{signature}"
 
