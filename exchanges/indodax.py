@@ -1,6 +1,7 @@
 # exchanges/indodax.py
 import ccxt
 
+
 class Indodax:
     """Indodax exchange implementation."""
 
