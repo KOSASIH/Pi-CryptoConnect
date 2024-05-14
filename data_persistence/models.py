@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class StateChange(models.Model):
     """A class representing a state change."""
 
