@@ -1,5 +1,7 @@
 import unittest
+
 from src.cryptocurrency_api import CryptocurrencyApi
+
 
 class TestCryptocurrencyApi(unittest.TestCase):
     def setUp(self):
@@ -16,6 +18,7 @@ class TestCryptocurrencyApi(unittest.TestCase):
         self.assertIn("ethereum", prices)
         self.assertGreater(prices["bitcoin"], 0)
         self.assertGreater(prices["ethereum"], 0)
+
 
 if __name__ == "__main__":
     unittest.main()
