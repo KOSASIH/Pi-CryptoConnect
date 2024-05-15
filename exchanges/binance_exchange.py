@@ -1,10 +1,12 @@
 # pi_cryptoconnect/exchanges/binance_exchange.py
 
 import logging
+from typing import Dict, List
+
 import requests
-from typing import List, Dict
 
 logging.basicConfig(level=logging.INFO)
+
 
 class BinanceExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -12,7 +14,9 @@ class BinanceExchange:
         self.api_secret = api_secret
         self.session = requests.Session()
 
-    def get_historical_klines(self, symbol: str, interval: str, start_time: int, end_time: int) -> List[Dict]:
+    def get_historical_klines(
+        self, symbol: str, interval: str, start_time: int, end_time: int
+    ) -> List[Dict]:
         """
         Retrieves historical klines data from Binance.
 
@@ -33,7 +37,7 @@ class BinanceExchange:
             "symbol": symbol,
             "interval": interval,
             "startTime": start_time,
-            "endTime": end_time
+            "endTime": end_time,
         }
 
         try:
