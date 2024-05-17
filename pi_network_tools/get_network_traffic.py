@@ -1,5 +1,6 @@
 import psutil
 
+
 def get_network_traffic():
     """
     Get the network traffic of the Raspberry Pi.
