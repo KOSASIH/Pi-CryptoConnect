@@ -1,0 +1,70 @@
+from web3 import Web3
+from solcx import compile_source
+
+# Connect to the local blockchain
+w3 = Web3(Web3.HTTPProvider('http://localhost:8545'))
+
+# Compile the smart contract
+contract_source_code = '''
+pragma solidity ^0.8.13;
+
+contract IdentityVerification {
+    struct Identity {
+        string name;
+        string email;
+        uint age;
+    }
+
+    mapping(address => Identity) public identities;
+
+    modifier identityExists(address _user) {
+        require(identities[_user].name != "", "Identity not found");
+        _;
+    }
+
+    function updateIdentity(string memory _name, string memory _email, uint _age) public identityExists(msg.sender) {
+        identities[msg.sender].name = _name;
+        identities[msg.sender].email = _email;
+        identities[msg.sender].age = _age;
+    }
+
+    function getIdentity(address _address) public view identityExists(_address) returns (string memory name, string memory email, uint age) {
+        Identity memory identity = identities[_address];
+        return (identity.name, identity.email, identity.age);
+    }
+
+    function deleteIdentity() public identityExists(msg.sender) {
+        delete identities[msg.sender];
+    }
+}
+'''
+compiled_sol = compile_source(contract_source_code)
+contract_interface = compiled_sol['<stdin>:IdentityVerification']
+
+# Deploy the smart contract
+w3.eth.defaultAccount = w3.eth.accounts[0]
+IdentityVerification = w3.eth.contract(abi=contract_interface['abi'], bytecode=contract_interface['bin'])
+tx_hash = IdentityVerification.constructor().transact()
+tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+identity_verification_contract = w3.eth.contract(address=tx_receipt.contractAddress, abi=contract_interface['abi'])
+
+# Interact with the smart contract
+def create_identity(name, email, age):
+    identity_verification_contract.functions.createIdentity(name, email, age).transact()
+
+def update_identity(name, email, age):
+    identity_verification_contract.functions.updateIdentity(name, email, age).transact()
+
+def get_identity(address):
+    name, email, age = identity_verification_contract.functions.getIdentity(address).call()
+    return name, email, age
+
+def delete_identity(address):
+    identity_verification_contract.functions.deleteIdentity().transact({'from': address})
+
+# Example usage
+create_identity("John Doe", "john.doe@example.com", 30)
+update_identity("Jane Doe", "jane.doe@example.com", 28)
+print(get_identity(w3.eth.accounts[0]))  # Output: ('Jane Doe', 'jane.doe@example.com', 28)
+delete_identity(w3.eth.accounts[0])
+print(get_identity(w3.eth.accounts[0]))  # Output: ('', '', 0)
