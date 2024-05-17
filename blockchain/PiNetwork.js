@@ -1,15 +1,15 @@
-const PiNetwork = require('pinetwork-js');
+const PiNetwork = require("pinetwork-js");
 
 // If you want to use the mainnet, set Chain ID to 1.
 const chainId = 0; // Testnet
-const pinetwork = new PiNetwork(`https://mainnet-api.ainetwork.ai`, chainId);
+const pinetwork = new PiNetwork("https://mainnet-api.ainetwork.ai", chainId);
 
 // Set your private key
-const privateKey = 'your_private_key_here';
+const privateKey = "your_private_key_here";
 const account = pinetwork.wallet.addAndSetDefaultAccount(privateKey);
 
 // Set your app name
-const appName = 'my_bot';
+const appName = "my_bot";
 
 // Set the app path
 const appPath = `/apps/${appName}`;
