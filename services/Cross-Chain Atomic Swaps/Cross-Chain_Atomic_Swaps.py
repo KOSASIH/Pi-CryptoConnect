@@ -1,7 +1,8 @@
+import binascii
 import hashlib
 import random
+
 import ecdsa
-import binascii
 
 # Define the secp256k1 curve
 curve = ecdsa.NIST256p()
@@ -29,11 +30,15 @@ R_b = curve.generator * r_b
 # - Timelock: t_a
 # Amount: amount
 alice_transaction = {
-    'hashlock': hashlib.sha256(R_a.to_string() + R_b.to_string() + b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01').digest(),
-    'timelock': t_a,
-    'amount': amount,
-    'sender': alice_public_key,
-    'receiver': bob_public_key,
+    "hashlock": hashlib.sha256(
+        R_a.to_string()
+        + R_b.to_string()
+        + b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01"
+    ).digest(),
+    "timelock": t_a,
+    "amount": amount,
+    "sender": alice_public_key,
+    "receiver": bob_public_key,
 }
 
 # Bob creates a transaction with the following conditions:
@@ -41,22 +46,26 @@ alice_transaction = {
 # - Timelock: t_b
 # Amount: amount
 bob_transaction = {
-    'hashlock': hashlib.sha256(R_a.to_string() + R_b.to_string() + b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01').digest(),
-    'timelock': t_b,
-    'amount': amount,
-    'sender': bob_public_key,
-    'receiver': alice_public_key,
+    "hashlock": hashlib.sha256(
+        R_a.to_string()
+        + R_b.to_string()
+        + b"\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01"
+    ).digest(),
+    "timelock": t_b,
+    "amount": amount,
+    "sender": bob_public_key,
+    "receiver": alice_public_key,
 }
 
 # Alice and Bob exchange the transactions
 
 # Alice signs the transaction
-signature = alice_private_key.sign(binascii.hexlify(alice_transaction['hashlock']))
-alice_transaction['signature'] = binascii.unhexlify(signature.encode('ascii'))
+signature = alice_private_key.sign(binascii.hexlify(alice_transaction["hashlock"]))
+alice_transaction["signature"] = binascii.unhexlify(signature.encode("ascii"))
 
 # Bob signs the transaction
-signature = bob_private_key.sign(binascii.hexlify(bob_transaction['hashlock']))
-bob_transaction['signature'] = binascii.unhexlify(signature.encode('ascii'))
+signature = bob_private_key.sign(binascii.hexlify(bob_transaction["hashlock"]))
+bob_transaction["signature"] = binascii.unhexlify(signature.encode("ascii"))
 
 # Alice and Bob broadcast the transactions to their respective networks
 
