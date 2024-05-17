@@ -1,5 +1,6 @@
 import socket
 
+
 def test_connectivity(host):
     """
     Test connectivity to a host.
