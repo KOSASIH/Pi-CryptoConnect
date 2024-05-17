@@ -1,14 +1,16 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, jsonify, request
+
 from services import CurrencyService
 
-currency_blueprint = Blueprint('currency', __name__)
+currency_blueprint = Blueprint("currency", __name__)
 
-@currency_blueprint.route('/convert', methods=['POST'])
+
+@currency_blueprint.route("/convert", methods=["POST"])
 def convert_currency():
     data = request.get_json()
-    source_symbol = data['source_symbol']
-    target_symbol = data['target_symbol']
-    amount = data['amount']
+    source_symbol = data["source_symbol"]
+    target_symbol = data["target_symbol"]
+    amount = data["amount"]
 
     source_currency = currency_service.get_currency_by_symbol(source_symbol)
     target_currency = currency_service.get_currency_by_symbol(target_symbol)
@@ -16,5 +18,5 @@ def convert_currency():
     if source_currency and target_currency:
         exchange_rate = target_currency.exchange_rate / source_currency.exchange_rate
         converted_amount = amount * exchange_rate
-        return jsonify({'converted_amount': converted_amount})
-    return jsonify({'error': 'Invalid currency symbols'}), 400
+        return jsonify({"converted_amount": converted_amount})
+    return jsonify({"error": "Invalid currency symbols"}), 400
