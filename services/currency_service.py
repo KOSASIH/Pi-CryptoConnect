@@ -1,5 +1,6 @@
 from models import Currency
 
+
 class CurrencyService:
     def get_all_currencies(self):
         return Currency.query.all()
