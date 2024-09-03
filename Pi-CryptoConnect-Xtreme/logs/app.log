@@ -1,0 +1,9 @@
+2023-02-20 14:30:00,123 INFO [main] Starting application...
+2023-02-20 14:30:00,456 DEBUG [config] Loaded configuration from config.json
+2023-02-20 14:30:00,789 INFO [exchange] Connected to Binance API
+2023-02-20 14:30:01,012 DEBUG [trading] Placing buy order for BTCUSDT with quantity 0.01
+2023-02-20 14:30:01,234 INFO [trading] Order placed successfully
+2023-02-20 14:30:02,456 DEBUG [market_data] Received market data update for BTCUSDT
+2023-02-20 14:30:03,789 INFO [trading] Closing position for BTCUSDT with profit 0.05%
+2023-02-20 14:30:04,012 DEBUG [risk_management] Updating risk management metrics
+2023-02-20 14:30:05,234 INFO [main] Application running normally
