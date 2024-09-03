@@ -1,0 +1,5 @@
+flask
+ccxt
+pandas
+scikit-learn
+cryptography
