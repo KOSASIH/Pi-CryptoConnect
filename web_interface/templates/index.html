@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pi Crypto Connect</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Pi Crypto Connect</h1>
+    <div id="trading-performance-chart"></div>
+    <div id="customizable-dashboard"></div>
+    <script>
+        fetch("/api/trading_performance")
+            .then(response => response.json())
+            .then(data => {
+                const chart = new Chart(document.getElementById("trading-performance-chart"), {
+                    type: "line",
+                    data: data,
+                    options: {
+                        title: {
+                            display: true,
+                            text: "Trading Performance"
+                        }
+                    }
+                });
+            });
+
+        fetch("/api/customizable_dashboard")
+            .then(response => response.json())
+            .then(data => {
+                const dashboard = document.getElementById("customizable-dashboard");
+                dashboard.innerHTML = "";
+                data.forEach(item => {
+                    const widget = document.createElement("div");
+                    widget.innerHTML = item.label + ": " + item.value;
+                    dashboard.appendChild(widget);
+                });
+            });
+    </script>
+</body>
+</html>
