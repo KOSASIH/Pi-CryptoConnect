@@ -1,0 +1,5 @@
+2023-02-20 14:30:10,456 ERROR [exchange] Error connecting to Kraken API: API key invalid
+2023-02-20 14:30:15,789 ERROR [trading] Error placing sell order for ETHUSDT: Insufficient balance
+2023-02-20 14:30:20,012 ERROR [market_data] Error fetching market data for LTCUSDT: API rate limit exceeded
+2023-02-20 14:30:25,234 ERROR [risk_management] Error updating risk management metrics: Database connection failed
+2023-02-20 14:30:30,456 ERROR [main] Uncaught exception: TypeError: 'NoneType' object is not iterable
