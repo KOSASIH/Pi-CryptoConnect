@@ -8,8 +8,8 @@ class NnTrainer:
         self.data = data
         self.labels = labels
 
-    def train(self):
-        self.model.train(self.data, self.labels)
+    def train(self, epochs=100, batch_size=32, validation_split=0.2, early_stopping_patience=5, reduce_lr_patience=5):
+        self.model.train(self.data, self.labels, epochs=epochs, batch_size=batch_size, validation_split=validation_split, early_stopping_patience=early_stopping_patience, reduce_lr_patience=reduce_lr_patience)
 
     def predict(self, data):
         return self.model.predict(data)
