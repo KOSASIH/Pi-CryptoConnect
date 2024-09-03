@@ -1,0 +1,85 @@
+{
+  "api_keys": {
+    "binance": "YOUR_BINANCE_API_KEY",
+    "coinbase": "YOUR_COINBASE_API_KEY",
+    "kraken": "YOUR_KRAKEN_API_KEY",
+    "bitfinex": "YOUR_BITFINEX_API_KEY",
+    "huobi": "YOUR_HUOBI_API_KEY",
+    "okex": "YOUR_OKEX_API_KEY",
+    "bitmex": "YOUR_BITMEX_API_KEY",
+    "deribit": "YOUR_DERIBIT_API_KEY",
+    "bybit": "YOUR_BYBIT_API_KEY",
+    "ftx": "YOUR_FTX_API_KEY"
+  },
+  "exchange_endpoints": {
+    "binance": "https://api.binance.com/api/v3/",
+    "coinbase": "https://api.coinbase.com/v2/",
+    "kraken": "https://api.kraken.com/0/",
+    "bitfinex": "https://api.bitfinex.com/v1/",
+    "huobi": "https://api.huobi.pro/",
+    "okex": "https://api.okex.com/",
+    "bitmex": "https://api.bitmex.com/api/v1/",
+    "deribit": "https://api.deribit.com/api/v2/",
+    "bybit": "https://api.bybit.com/api/v2/",
+    "ftx": "https://api.ftx.com/api/v2/"
+  },
+  "exchange_settings": {
+    "binance": {
+      "symbol": "BTCUSDT",
+      "timeframe": "1m",
+      "leverage": 10
+    },
+    "coinbase": {
+      "symbol": "BTC-USD",
+      "timeframe": "1m",
+      "leverage": 1
+    },
+    "kraken": {
+      "symbol": "XXBTZUSD",
+      "timeframe": "1m",
+      "leverage": 5
+    },
+    "bitfinex": {
+      "symbol": "BTCUSD",
+      "timeframe": "1m",
+      "leverage": 10
+    },
+    "huobi": {
+      "symbol": "btcusdt",
+      "timeframe": "1m",
+      "leverage": 10
+    },
+    "okex": {
+      "symbol": "BTC-USDT",
+      "timeframe": "1m",
+      "leverage": 10
+    },
+    "bitmex": {
+      "symbol": "XBTUSD",
+      "timeframe": "1m",
+      "leverage": 100
+    },
+    "deribit": {
+      "symbol": "BTC-PERPETUAL",
+      "timeframe": "1m",
+      "leverage": 100
+    },
+    "bybit": {
+      "symbol": "BTCUSDT",
+      "timeframe": "1m",
+      "leverage": 100
+    },
+    "ftx": {
+      "symbol": "BTC-PERP",
+      "timeframe": "1m",
+      "leverage": 100
+    }
+  },
+  "trading_config": {
+    "max_position_size": 1000,
+    "risk_management": {
+      "stop_loss": 2,
+      "take_profit": 5
+    }
+  }
+}
