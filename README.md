@@ -8,14 +8,27 @@
 [![International Monetary Fund](https://img.shields.io/badge/International%20Monetary%20Fund-IMF-blue.svg)](https://www.imf.org/)
 [![World Bank](https://img.shields.io/badge/World%20Bank-WB-green.svg)](https://www.worldbank.org/)
 [![Bank for International Settlements](https://img.shields.io/badge/Bank%20for%20International%20Settlements-BIS-yellow.svg)](https://www.bis.org/)
+[![Asian Development Bank](https://img.shields.io/badge/Asian%20Development%20Bank-ADB-blue.svg)](https://www.adb.org/)
+[![Inter-American Development Bank](https://img.shields.io/badge/Inter--American%20Development%20Bank-IDB-green.svg)](https://www.iadb.org/)
+[![African Development Bank](https://img.shields.io/badge/African%20Development%20Bank-AfDB-yellow.svg)](https://www.afdb.org/)
 
 [![Federal Reserve](https://img.shields.io/badge/Federal%20Reserve-Fed-red.svg)](https://www.federalreserve.gov/)
 [![European Central Bank](https://img.shields.io/badge/European%20Central%20Bank-ECB-orange.svg)](https://www.ecb.europa.eu/)
 [![Bank of England](https://img.shields.io/badge/Bank%20of%20England-BoE-purple.svg)](https://www.bankofengland.co.uk/)
+[![European Securities and Markets Authority](https://img.shields.io/badge/European%20Securities%20and%20Markets%20Authority-ESMA-orange.svg)](https://www.esma.europa.eu/)
+[![Financial Stability Board](https://img.shields.io/badge/Financial%20Stability%20Board-FSB-purple.svg)](https://www.fsb.org/)
+[![International Organization of Securities Commissions](https://img.shields.io/badge/International%20Organization%20of%20Securities%20Commissions-IOSCO-red.svg)](https://www.iosco.org/)
 
 [![CoinGecko](https://img.shields.io/badge/CoinGecko-CG-orange.svg)](https://www.coingecko.com/)
 [![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-RPi-red.svg)](https://www.raspberrypi.com/)
 [![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-Azure-blue.svg)](https://azure.microsoft.com/)
+[![Bitcoin](https://img.shields.io/badge/Bitcoin-BTC-orange.svg)](https://bitcoin.org/)
+[![Ethereum](https://img.shields.io/badge/Ethereum-ETH-blue.svg)](https://ethereum.org/)
+[![Hyperledger Fabric](https://img.shields.io/badge/Hyperledger%20Fabric-HLF-yellow.svg)](https://www.hyperledger.org/projects/fabric)
+
+[![Bitcoin](https://img.shields.io/badge/Bitcoin-BTC-orange.svg)](https://bitcoin.org/)
+[![Ethereum](https://img.shields.io/badge/Ethereum-ETH-blue.svg)](https://ethereum.org/)
+[![Hyperledger Fabric](https://img.shields.io/badge/Hyperledger%20Fabric-HLF-yellow.svg)](https://www.hyperledger.org/projects/fabric)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/Pi-CryptoConnect">Pi CryptoConnect</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a?trk=contact-info">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
