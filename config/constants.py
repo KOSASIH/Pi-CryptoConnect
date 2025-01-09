@@ -23,6 +23,29 @@ class Currency(Enum):
     BTC = 'btc'
     ETH = 'eth'
 
+class PiCoinConfig:
+    """Configuration constants for Pi Coin as a stablecoin."""
+
+    # General Constants
+    SYMBOL: str = "Pi"  # Symbol for Pi Coin
+    VALUE: float = 314159.0  # Fixed value of Pi Coin in USD
+    SUPPLY: int = 100_000_000_000  # Total supply of Pi Coin
+    DECIMALS: int = 18  # Number of decimal places for Pi Coin
+    OFFICIAL_WEBSITE: str = "https://minepi.com"  # Official website for Pi Network
+    WHITEPAPER_URL: str = "https://minepi.com/whitepaper"  # Link to the whitepaper
+
+    # Transaction Constants
+    TRANSACTION_FEE: float = 0.01  # Transaction fee in USD
+    MAX_TRANSACTION_SIZE: int = 1_000_000  # Maximum transaction size in bytes
+    MIN_TRANSACTION_AMOUNT: float = 0.01  # Minimum transaction amount in USD
+
+    # Block Constants
+    BLOCK_TIME: int = 10  # Average block time in seconds
+    GENESIS_BLOCK_TIMESTAMP: str = "2025-01-01T00:00:00Z"  # Timestamp of the genesis block
+    MAX_BLOCK_SIZE: int = 2_000_000  # Maximum block size in bytes
+
+    # Additional constants can be added here as needed
+
 class Config:
     """Configuration class"""
     def __init__(self, env: Environment):
@@ -67,4 +90,5 @@ class Config:
         """Pi Network environment"""
         return Network[self.config.get('NETWORK', Network.MAINNET.name)]
 
+# Initialize the configuration
 config = Config(Environment(os.environ.get('ENV', Environment.DEVELOPMENT.name)))
