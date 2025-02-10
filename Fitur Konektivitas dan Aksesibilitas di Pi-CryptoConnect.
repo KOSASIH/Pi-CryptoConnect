@@ -1,0 +1,41 @@
+✅ Autentikasi Multi-Faktor (MFA) dengan OTP (Keamanan ekstra)
+✅ Akses Jarak Jauh dengan WebSocket (Real-Time Update)
+✅ Integrasi API dengan Pi Network (Login Otomatis dengan Pi)
+✅ PWA (Progressive Web App) untuk Akses dari Semua Perangkat
+✅ Mode Offline (Transaksi dapat diproses saat tidak ada koneksi, lalu dikirim saat online)
+
+
+
+
+/pi-cryptoconnect
+ ├── backend
+ │   ├── controllers
+ │   │   ├── authController.js
+ │   │   ├── remoteAccessController.js
+ │   ├── models
+ │   │   ├── User.js
+ │   │   ├── Session.js
+ │   ├── routes
+ │   │   ├── authRoutes.js
+ │   │   ├── remoteAccessRoutes.js
+ │   ├── server.js
+ ├── frontend
+ │   ├── src
+ │   │   ├── components
+ │   │   │   ├── MFASetup.js
+ │   │   │   ├── RemoteDashboard.js
+ │   │   │   ├── PiNetworkLogin.js
+ │   │   │   ├── OfflineTransactionQueue.js
+ │   │   ├── serviceWorker.js
+ │   │   ├── App.js
+ ├── package.json
+
+
+
+
+
+
+📌 Kesimpulan
+
+🔥 Kode ini mencakup:
+✅ MFA & OTP ✅ Akses Jarak Jauh ✅ Login Pi Network ✅ PWA ✅ Mode Offline
