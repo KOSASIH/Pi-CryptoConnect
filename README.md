@@ -1,5 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/Pi-CryptoConnect-gold)
-
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/KOSASIH/Pi-CryptoConnect/tree/circleci-project-setup.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/KOSASIH/Pi-CryptoConnect/tree/circleci-project-setup)
 [![Pi Network](https://img.shields.io/badge/Pi%20Network-Pi%20Network-blue.svg)](https://minepi.com/)
 [![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-RPi-red.svg)](https://www.raspberrypi.com/)
 [![Raspberry Pi Zero](https://img.shields.io/badge/Raspberry%20Pi%20Zero-RPi%20Zero-green.svg)](https://www.raspberrypi.com/products/raspberry-pi-zero/)
