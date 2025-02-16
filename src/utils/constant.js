@@ -57,30 +57,30 @@ const PI_COIN = {
     ], // List of assets backing the stablecoin
     TRANSACTION_FEE: 0.000000001, // Ultra-low transaction fee in USD for user engagement
     TRANSACTION_FEE_ADJUSTMENT: 0.0000000001, // Dynamic adjustment factor for transaction fees
-    BLOCK_TIME: 0.001, // Ultra-fast block time in seconds for rapid transactions
+    BLOCK_TIME: 0.0001, // Ultra-fast block time in seconds for rapid transactions
     BLOCK_TIME_ADJUSTMENT: 0.00001, // Fine-tuned adjustment factor for block time based on network load
-    MINING_DIFFICULTY: 10, // Significantly reduced difficulty for increased mining participation
-    MINING_DIFFICULTY_ADJUSTMENT: 0.0001, // Fine-tuned adjustment factor for mining difficulty
-    MINING_REWARD: 500, // Increased reward for mining a block
-    MINING_REWARD_ADJUSTMENT: 2.0, // Dynamic adjustment for mining rewards
-    NETWORK_PROTOCOL: "Hybrid PoS + DPoS + Sharding + Layer 2 Solutions + Interoperability Protocol + Zero-Knowledge Proofs + Byzantine Fault Tolerance + AI-Driven Optimization", // Advanced network protocol for scalability and privacy
-    NETWORK_PROTOCOL_VERSION: "6.0.0", // Updated version of the network protocol
-    MAX_TRANSACTION_SIZE: 1_000_000_000 , // Increased maximum transaction size in bytes
+    MINING_DIFFICULTY: 5, // Significantly reduced difficulty for increased mining participation
+    MINING_DIFFICULTY_ADJUSTMENT: 0.00001, // Fine-tuned adjustment factor for mining difficulty
+    MINING_REWARD: 1000, // Increased reward for mining a block
+    MINING_REWARD_ADJUSTMENT: 2.5, // Dynamic adjustment for mining rewards
+    NETWORK_PROTOCOL: "Hybrid PoS + DPoS + Sharding + Layer 2 Solutions + Interoperability Protocol + Zero-Knowledge Proofs + Byzantine Fault Tolerance + AI-Driven Optimization + Quantum-Resistant Protocols", // Advanced network protocol for scalability and privacy
+    NETWORK_PROTOCOL_VERSION: "7.0.0", // Updated version of the network protocol
+    MAX_TRANSACTION_SIZE: 10_000_000_000, // Increased maximum transaction size in bytes
     DECIMALS: 18, // Number of decimal places for Pi Coin
     GENESIS_BLOCK_TIMESTAMP: "2025-01-01T00:00:00Z", // Timestamp of the genesis block
-    GOVERNANCE_MODEL: "Decentralized Autonomous Organization (DAO) with Liquid Democracy, Stakeholder Voting, and Quadratic Voting", // Governance model for Pi Coin
+    GOVERNANCE_MODEL: "Decentralized Autonomous Organization (DAO) with Liquid Democracy, Stakeholder Voting, Quadratic Voting, and Community Proposals", // Governance model for Pi Coin
     GOVERNANCE_VOTING_PERIOD:  8640000, // Voting period in seconds, 100 days
-    ENCRYPTION_ALGORITHM: "AES-2048-GCM", // Enhanced encryption algorithm for securing transactions
-    HASHING_ALGORITHM: "SHA-512/256", // Advanced hashing algorithm for block verification
-    SIGNATURE_SCHEME: "EdDSA + BLS + Quantum-Resistant + Multi-Signature + Threshold Signatures + Post-Quantum Cryptography", // More secure digital signature scheme for transaction signing
-    SECURITY_AUDIT_INTERVAL: 300, // Security audit interval in seconds, 5 minutes
-    MAX_PEERS: 10_000, // Increased maximum number of peers in the network
-    NODE_TIMEOUT: 0.001, // Reduced timeout for node responses in seconds
-    CONNECTION_RETRY_INTERVAL: 0.0001, // Reduced retry interval for node connections in seconds
-    STAKING_REWARD: 50.0, // Increased reward for staking Pi Coins
-    MINIMUM_STAKE: 0.00001, // Further reduced minimum amount required to stake
-    STAKING_PERIOD: 864000, // Staking period in seconds, 10 days
-    STAKING_REWARD_ADJUSTMENT: 0.0001, // Dynamic adjustment for staking rewards
+    ENCRYPTION_ALGORITHM: "AES-4096-GCM", // Enhanced encryption algorithm for securing transactions
+    HASHING_ALGORITHM: "SHA-512/512", // Advanced hashing algorithm for block verification
+    SIGNATURE_SCHEME: "EdDSA + BLS + Quantum-Resistant + Multi-Signature + Threshold Signatures + Post-Quantum Cryptography + Advanced Cryptographic Techniques", // More secure digital signature scheme for transaction signing
+    SECURITY_AUDIT_INTERVAL: 150, // Security audit interval in seconds, 2.5 minutes
+    MAX_PEERS: 20_000, // Increased maximum number of peers in the network
+    NODE_TIMEOUT: 0.0005, // Reduced timeout for node responses in seconds
+    CONNECTION_RETRY_INTERVAL: 0.00005, // Reduced retry interval for node connections in seconds
+    STAKING_REWARD: 100.0, // Increased reward for staking Pi Coins
+    MINIMUM_STAKE: 0.000001, // Further reduced minimum amount required to stake
+    STAKING_PERIOD: 432000, // Staking period in seconds, 5 days
+    STAKING_REWARD_ADJUSTMENT: 0.00001, // Dynamic adjustment for staking rewards
     SMART_CONTRACT_SUPPORT: true, // Enable smart contract functionality
     INTEROPERABILITY: true, // Support for cross-chain transactions
     DECENTRALIZED_IDENTITY: true, // Support for decentralized identity management
@@ -88,12 +88,12 @@ const PI_COIN = {
     TRANSACTION_COMPRESSION: true, // Enable transaction data compression for efficiency
     LOAD_BALANCING: true, // Enable load balancing across nodes for improved performance
     NETWORK_MONITORING: true, // Enable real-time network monitoring and analytics
-    FUTURE_UPGRADE_PATH: "7.0.0", // Planned future upgrade version
-    RESEARCH_AND_DEVELOPMENT_FUND: 5.0, // Percentage of transaction fees allocated for R&D
+    FUTURE_UPGRADE_PATH: "8.0.0", // Planned future upgrade version
+    RESEARCH_AND_DEVELOPMENT_FUND: 10.0, // Percentage of transaction fees allocated for R&D
     DDOS_PROTECTION: true, // Enable DDoS protection mechanisms
     ANOMALY_DETECTION: true, // Enable anomaly detection for suspicious activities
-    STABILITY_MONITORING_INTERVAL: 150, // Interval for monitoring stability in seconds
-    STABILITY_THRESHOLD: 0.0001, // Threshold for acceptable price fluctuation (0.01%)
+    STABILITY_MONITORING_INTERVAL: 100, // Interval for monitoring stability in seconds
+    STABILITY_THRESHOLD: 0.00005, // Threshold for acceptable price fluctuation (0.005%)
     LIQUIDITY_POOL_SUPPORT: true, // Enable liquidity pool features for enhanced trading
     CROSS_CHAIN_BRIDGING: true, // Support for bridging assets across different blockchains
     USER_FRIENDLY_INTERFACE: true, // Focus on user experience with an intuitive interface
@@ -116,7 +116,7 @@ const PI_COIN = {
     DECENTRALIZED_FINANCE_SUPPORT: true, // Enable DeFi features for lending and borrowing
     INTEGRATED_PAYMENT_GATEWAY: true, // Support for integrated payment solutions
     TOKENIZED_ASSET_SUPPORT: true, // Enable support for tokenized assets
-    NETWORK_FEE_MODEL: "Dynamic Fee Structure based on Network Demand", // Implement a dynamic fee model to optimize transaction costs
+    NETWORK_FEE_MODEL: "Dynamic Fee Structure based on Network Demand and User Engagement", // Implement a dynamic fee model to optimize transaction costs
     USER_RESOURCES: true, // Allow users to provide feedback and suggestions for improvements
     MULTI_LANGUAGE_SUPPORT: true, // Support for multiple languages to cater to a global audience
     EDUCATIONAL_RESOURCES: true, // Provide educational materials for users to understand the ecosystem
@@ -128,7 +128,7 @@ const PI_COIN = {
     TRANSACTION_ANALYTICS: true, // Provide analytics tools for users to track their transactions
     COMMUNITY_REWARDS: true, // Implement a rewards system for community contributions
     ENVIRONMENTAL_SUSTAINABILITY: true, // Focus on sustainable practices in operations
-    INNOVATION_FUND: 10.0, // Percentage of transaction fees allocated for innovation projects
+    INNOVATION_FUND: 15.0, // Percentage of transaction fees allocated for innovation projects
     USER_ONBOARDING: true, // Streamlined onboarding process for new users
     SECURITY_FEATURES: {
         TWO_FACTOR_AUTHENTICATION: true, // Enable two-factor authentication for added security
