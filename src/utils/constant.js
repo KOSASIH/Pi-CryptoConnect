@@ -63,8 +63,8 @@ const PI_COIN = {
     MINING_DIFFICULTY_ADJUSTMENT: 0.00001, // Fine-tuned adjustment factor for mining difficulty
     MINING_REWARD: 1000, // Increased reward for mining a block
     MINING_REWARD_ADJUSTMENT: 2.5, // Dynamic adjustment for mining rewards
-    NETWORK_PROTOCOL: "Hybrid PoS + DPoS + Sharding + Layer 2 Solutions + Interoperability Protocol + Zero-Knowledge Proofs + Byzantine Fault Tolerance + AI-Driven Optimization + Quantum-Resistant Protocols", // Advanced network protocol for scalability and privacy
-    NETWORK_PROTOCOL_VERSION: "7.0.0", // Updated version of the network protocol
+    NETWORK_PROTOCOL: "Hybrid PoS + DPoS + Sharding + Layer 2 Solutions + Interoperability Protocol + Zero-Knowledge Proofs + Byzantine Fault Tolerance + AI-Driven Optimization + Quantum-Resistant Protocols + Self-Learning Algorithms + Adaptive Consensus Mechanisms", // Advanced network protocol for scalability and privacy
+    NETWORK_PROTOCOL_VERSION: "8.0.0", // Updated version of the network protocol
     MAX_TRANSACTION_SIZE: 10_000_000_000, // Increased maximum transaction size in bytes
     DECIMALS: 18, // Number of decimal places for Pi Coin
     GENESIS_BLOCK_TIMESTAMP: "2025-01-01T00:00:00Z", // Timestamp of the genesis block
@@ -72,7 +72,7 @@ const PI_COIN = {
     GOVERNANCE_VOTING_PERIOD:  8640000, // Voting period in seconds, 100 days
     ENCRYPTION_ALGORITHM: "AES-4096-GCM", // Enhanced encryption algorithm for securing transactions
     HASHING_ALGORITHM: "SHA-512/512", // Advanced hashing algorithm for block verification
-    SIGNATURE_SCHEME: "EdDSA + BLS + Quantum-Resistant + Multi-Signature + Threshold Signatures + Post-Quantum Cryptography + Advanced Cryptographic Techniques", // More secure digital signature scheme for transaction signing
+    SIGNATURE_SCHEME: "EdDSA + BLS + Quantum-Resistant + Multi-Signature + Threshold Signatures + Post-Quantum Cryptography + Advanced Cryptographic Techniques + Adaptive Signature Verification", // More secure digital signature scheme for transaction signing
     SECURITY_AUDIT_INTERVAL: 150, // Security audit interval in seconds, 2.5 minutes
     MAX_PEERS: 20_000, // Increased maximum number of peers in the network
     NODE_TIMEOUT: 0.0005, // Reduced timeout for node responses in seconds
@@ -88,7 +88,7 @@ const PI_COIN = {
     TRANSACTION_COMPRESSION: true, // Enable transaction data compression for efficiency
     LOAD_BALANCING: true, // Enable load balancing across nodes for improved performance
     NETWORK_MONITORING: true, // Enable real-time network monitoring and analytics
-    FUTURE_UPGRADE_PATH: "8.0.0", // Planned future upgrade version
+    FUTURE_UPGRADE_PATH: "9.0.0", // Planned future upgrade version
     RESEARCH_AND_DEVELOPMENT_FUND: 10.0, // Percentage of transaction fees allocated for R&D
     DDOS_PROTECTION: true, // Enable DDoS protection mechanisms
     ANOMALY_DETECTION: true, // Enable anomaly detection for suspicious activities
@@ -116,7 +116,7 @@ const PI_COIN = {
     DECENTRALIZED_FINANCE_SUPPORT: true, // Enable DeFi features for lending and borrowing
     INTEGRATED_PAYMENT_GATEWAY: true, // Support for integrated payment solutions
     TOKENIZED_ASSET_SUPPORT: true, // Enable support for tokenized assets
-    NETWORK_FEE_MODEL: "Dynamic Fee Structure based on Network Demand and User Engagement", // Implement a dynamic fee model to optimize transaction costs
+    NETWORK_FEE_MODEL: "Dynamic Fee Structure based on Network Demand and User Engagement with Adaptive Pricing Mechanisms", // Implement a dynamic fee model to optimize transaction costs
     USER_RESOURCES: true, // Allow users to provide feedback and suggestions for improvements
     MULTI_LANGUAGE_SUPPORT: true, // Support for multiple languages to cater to a global audience
     EDUCATIONAL_RESOURCES: true, // Provide educational materials for users to understand the ecosystem
@@ -136,6 +136,11 @@ const PI_COIN = {
         REGULAR_SECURITY_UPDATES: true, // Ensure regular updates to security protocols
         ADVANCED_FRAUD_DETECTION: true, // Implement advanced fraud detection mechanisms
         REAL_TIME_SECURITY_MONITORING: true, // Enable real-time monitoring for security threats
+        ANTI_MALWARE_PROTECTION: true, // Implement anti-malware protection to safeguard user assets
+        INTRUSION_DETECTION_SYSTEM: true, // Enable intrusion detection systems for enhanced security
+        SECURITY_AWARENESS_TRAINING: true, // Provide training for users on security best practices
+        ENCRYPTED_BACKUP: true, // Ensure encrypted backups of critical data
+        INCIDENT_RESPONSE_PLAN: true, // Develop and maintain an incident response plan for security breaches
     },
 };
 
