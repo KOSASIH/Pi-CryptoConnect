@@ -102,7 +102,7 @@ PI_COIN = {
     "ENERGY_EFFICIENCY": True,  # Focus on reducing energy consumption in operations for sustainability
     "MULTI_SIG_WALLET_SUPPORT": True,  # Enable multi-signature wallets for enhanced security
     "INSTANT_SETTLEMENT": True,  # Support for instant transaction settlement to improve user experience
-    "AI_INTEGRATION": True,  # Incorporate AI for predictive analytics and decision-making to enhance performance
+    " AI_INTEGRATION": True,  # Incorporate AI for predictive analytics and decision-making to enhance performance
     "TOKEN_BURN_MECHANISM": True,  # Implement a token burn mechanism to reduce supply over time, increasing value
     "QUANTUM_RESISTANT": True,  # Implement quantum-resistant cryptographic algorithms to future-proof security
     "DECENTRALIZED_ORACLE": True,  # Support for decentralized oracles for real-world data integration
