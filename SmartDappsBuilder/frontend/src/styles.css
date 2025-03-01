@@ -1,0 +1,99 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Dark text color */
+}
+
+h1, h2, h3 {
+    color: #007bff; /* Primary color for headings */
+    margin: 0;
+}
+
+h1 {
+    font-size: 2.5em; /* Large heading */
+}
+
+h2 {
+    font-size: 2em; /* Medium heading */
+}
+
+h3 {
+    font-size: 1.5em; /* Smaller heading */
+}
+
+/* Link Styles */
+a {
+    text-decoration: none;
+    color: #007bff; /* Primary link color */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Button Styles */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    color: white; /* White text on hover */
+}
+
+/* Form Styles */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between inputs */
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Error Message Styles */
+.error-message {
+    color: red; /* Red color for error messages */
+    margin-top: 10px;
+    text-align: center; /* Center align error messages */
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px; /* Max width for main content */
+    margin: 0 auto; /* Center align */
+    padding: 20px; /* Padding around content */
+    background-color: white; /* White background for content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Smaller heading on mobile */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Smaller heading on mobile */
+    }
+
+    button {
+        font-size: 14px; /* Smaller button text on mobile */
+    }
+}
