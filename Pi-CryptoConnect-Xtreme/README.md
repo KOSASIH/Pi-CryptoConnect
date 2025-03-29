@@ -1,4 +1,4 @@
-# Pi-CryptoConnect-Xtreme
+yu# Pi-CryptoConnect-Xtreme
 A cutting-edge cryptocurrency trading platform using advanced machine learning models and APIs.
 
 # Features
@@ -13,7 +13,7 @@ A cutting-edge cryptocurrency trading platform using advanced machine learning m
 
 # Installation
 
-1. Clone the repository: git clone https://github.com/KOSASIH/Pi-CryptoConnect-Xtreme.git
+1. Clone the repository: git clone https://github.com/KOSASIH/Pi-CryptoConnect.git
 2. Install dependencies: pip install -r requirements.txt
 3. Replace YOUR_API_KEY and YOUR_API_SECRET with your actual Binance API key and secret in app/exchange.py
 4. Run the API server: python app/main.py
