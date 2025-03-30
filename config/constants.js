@@ -15,6 +15,11 @@ export const NETWORKS = {
     NAME: 'Bitcoin',
     CHAIN_ID: -1, // Bitcoin doesn't have a chain ID
     RPC_URL: 'https://mainnet.bitcoin.com/'
+  },
+  PI: {
+    NAME: 'Pi Network',
+    CHAIN_ID: 1001, // Example chain ID for Pi Network (replace with actual)
+    RPC_URL: 'https://your-pi-network-rpc-url' // Replace with actual RPC URL
   }
 }
 
@@ -29,7 +34,7 @@ export const ERC721_ABI = [
 export const WEB3_PROVIDERS = {
   HTTP: 'HTTP',
   IPC: 'IPC',
-  WEBSocket: 'WEBSOCKET'
+  WEBSOCKET: 'WEBSOCKET'
 }
 
 export const LOG_LEVELS = {
