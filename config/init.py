@@ -1,4 +1,4 @@
-# config/__init__.py
+# config/init.py
 
 from .settings import API_KEY, DATABASE_URL, DEBUG, SECRET_KEY
 
