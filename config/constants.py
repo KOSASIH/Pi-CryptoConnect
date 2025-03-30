@@ -1,9 +1,12 @@
-# config/constants.py
-
 import os
 import json
+import logging
 from enum import Enum
-from typing import Dict, List
+from typing import Dict, List, Any
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class Environment(Enum):
     """Environment variables"""
@@ -44,19 +47,28 @@ class PiCoinConfig:
     GENESIS_BLOCK_TIMESTAMP: str = "2025-01-01T00:00:00Z"  # Timestamp of the genesis block
     MAX_BLOCK_SIZE: int = 2_000_000  # Maximum block size in bytes
 
-    # Additional constants can be added here as needed
-
 class Config:
     """Configuration class"""
     def __init__(self, env: Environment):
         self.env = env
+        self.config: Dict[str, Any] = {}
         self.load_config()
 
     def load_config(self):
         """Load configuration from file or environment variables"""
-        config_file = os.environ.get('CONFIG_FILE') or 'config.json'
-        with open(config_file, 'r') as f:
-            self.config = json.load(f)
+        config_file = os.environ.get('CONFIG_FILE', 'config.json')
+        logger.info(f"Loading configuration from {config_file}")
+
+        try:
+            with open(config_file, 'r') as f:
+                self.config = json.load(f)
+            logger.info("Configuration loaded successfully.")
+        except FileNotFoundError:
+            logger.error(f"Configuration file {config_file} not found.")
+            raise
+        except json.JSONDecodeError as e:
+            logger.error(f"Error decoding JSON from {config_file}: {e}")
+            raise
 
         # Override with environment variables
         self.config.update({
@@ -64,6 +76,17 @@ class Config:
             'WALLET_PRIVATE_KEY': os.environ.get('WALLET_PRIVATE_KEY'),
             'WALLET_PUBLIC_KEY': os.environ.get('WALLET_PUBLIC_KEY'),
         })
+
+        # Validate required fields
+        self.validate_config()
+
+    def validate_config(self):
+        """Validate required configuration fields"""
+        required_fields = ['PI_NETWORK_API_ENDPOINT', 'WALLET_PRIVATE_KEY', 'WALLET_PUBLIC_KEY']
+        for field in required_fields:
+            if field not in self.config or not self.config[field]:
+                logger.error(f"Missing required configuration field: {field}")
+                raise ValueError(f"Missing required configuration field: {field}")
 
     @property
     def pi_network_api_endpoint(self) -> str:
