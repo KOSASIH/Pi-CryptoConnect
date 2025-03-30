@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +28,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
         .screens {
             display: flex;
@@ -34,41 +36,22 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-        .screen {
-            width: 150px;
-            height: 100px;
+        .screen, .service, .feature, .chair {
             background-color: #1a1a1a;
             border: 2px solid #333;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #00ffcc;
+            transition: transform 0.2s;
+        }
+        .screen:hover, .service:hover, .feature:hover, .chair:hover {
+            transform: scale(1.05);
         }
         .main-screen {
             width: 300px;
             height: 200px;
-            background-color: #1a1a1a;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00ffcc;
             margin-bottom: 20px;
-        }
-        .chairs {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-        .chair {
-            width: 100px;
-            height: 100px;
-            background-color: #1a1a1a;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00ffcc;
         }
         .title {
             font-size: 24px;
@@ -80,139 +63,117 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        .features {
+        .features, .services {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 20px;
         }
-        .feature {
-            background-color: #1a1a1a;
-            border: 2px solid #333;
-            padding: 10px;
-            margin: 5px;
-            width: 100%;
-            text-align: center;
-            color: #00ffcc;
-        }
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .service {
-            width: 150px;
-            height: 100px;
-            background-color: #1a1a1a;
-            border: 2px solid #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #00ffcc;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
     <div class="control-room">
-        <div class="control-panel">
-            <div class="title">CryptoConnect</div>
-            <div class="description">
+        <div class="control-panel" role="main">
+            <div class="title" aria-label="Application Title">CryptoConnect</div>
+            <div class="description" aria-label="Application Description">
                 An advanced, high-tech network launcher and management system for autonomously connecting and collaborating with crypto technology and financial systems worldwide.
             </div>
-            <div class="main-screen">
+            <div class="main-screen" aria-label="Main Control Screen">
                 <i class="fas fa-cog fa-3x"></i>
             </div>
-            <div class="screens">
-                <div class="screen">
+            <div class="screens" aria-label="Control Screens">
+                <div class="screen" aria-label="Screen 1">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
-                <div class="screen">
+                <div class="screen" aria-label="Screen 2">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
-                <div class="screen">
+                <div class="screen" aria-label="Screen 3">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
-                <div class="screen">
+                <div class="screen" aria-label="Screen 4">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
-                <div class="screen">
+                <div class="screen" aria-label="Screen 5">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
-                <div class="screen">
+                <div class="screen" aria-label="Screen 6">
                     <i class="fas fa-tv fa-2x"></i>
                 </div>
             </div>
-            <div class="features">
-                <div class="feature">
+            <div class="features" aria-label="Features of the Application">
+                <div class="feature" aria-label="Autonomous Network Management">
                     <i class="fas fa-network-wired fa-2x"></i>
                     <p>Autonomous Network Management</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="Advanced Security Protocols">
                     <i class="fas fa-shield-alt fa-2x"></i>
                     <p>Advanced Security Protocols</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="Real-time Analytics">
                     <i class="fas fa-chart-line fa-2x"></i>
                     <p>Real-time Analytics</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="AI-Powered Automation">
                     <i class="fas fa-robot fa-2x"></i>
                     <p>AI-Powered Automation</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="Cloud Integration">
                     <i class="fas fa-cloud fa-2x"></i>
                     <p>Cloud Integration</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="Seamless Updates">
                     <i class="fas fa-sync-alt fa-2x"></i>
                     <p>Seamless Updates</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="Blockchain Integration">
                     <i class="fas fa-database fa-2x"></i>
                     <p>Blockchain Integration</p>
                 </div>
-                <div class="feature">
+                <div class="feature" aria-label="User  Privacy Controls">
                     <i class="fas fa-user-shield fa-2x"></i>
                     <p>User Privacy Controls</p>
                 </div>
             </div>
-            <div class="services">
-                <div class="service">
+            <div class="services" aria-label="Services Offered">
+                <div class="service" aria-label="Crypto Wallet Management">
                     <i class="fas fa-wallet fa-2x"></i>
                     <p>Crypto Wallet Management</p>
                 </div>
-                <div class="service">
+                <div class="service" aria-label="Instant Crypto Exchange">
                     <i class="fas fa-exchange-alt fa-2x"></i>
                     <p>Instant Crypto Exchange</p>
                 </div>
-                <div class="service">
+                <div class="service" aria-label="Market Analysis Tools">
                     <i class="fas fa-chart-pie fa-2x"></i>
                     <p>Market Analysis Tools</p>
                 </div>
-                <div class="service">
+                <div class="service" aria-label="Real-time Alerts">
                     <i class="fas fa-bell fa-2x"></i>
                     <p>Real-time Alerts</p>
                 </div>
-                <div class="service">
+                <div class="service" aria-label="End-to-End Encryption">
                     <i class="fas fa-lock fa-2x"></i>
                     <p>End-to-End Encryption</p>
                 </div>
-                <div class="service">
+                <div class="service" aria-label="24/7 Customer Support">
                     <i class="fas fa-headset fa-2x"></i>
                     <p>24/7 Customer Support</p>
                 </div>
             </div>
-            <div class="chairs">
-                <div class="chair">
+            <div class="chairs" aria-label="Control Chairs">
+                <div class="chair" aria-label="Chair 1">
                     <i class="fas fa-chair fa-2x"></i>
                 </div>
-                <div class="chair">
+                <div class="chair" aria-label="Chair 2">
                     <i class="fas fa-chair fa-2x"></i>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // Add interactivity here if needed
+        console.log("CryptoConnect is ready to launch!");
+    </script>
 </body>
-</html>
+    </html>
