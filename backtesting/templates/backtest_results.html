@@ -1,38 +1,87 @@
-<!-- Backtest results template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backtest Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .summary {
+            margin-bottom: 40px;
+        }
+        .filter {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
 <h1>Backtest Results</h1>
-<table>
-    <tr>
-        <th> Metric </th>
-        <th> Value </th>
-    </tr>
-    <tr>
-        <td>Profit/Loss</td>
-        <td>{{ backtest.profit_loss }}</td>
-    </tr>
-    <tr>
-        <td>Sharpe Ratio</td>
-        <td>{{ backtest.sharpe_ratio }}</td>
-    </tr>
-    <tr>
-        <td>Sortino Ratio</td>
-        <td>{{ backtest.sortino_ratio }}</td>
-    </tr>
-    <tr>
-        <td>Maximum Drawdown</td>
-        <td>{{ backtest.max_drawdown }}</td>
-    </tr>
-    <tr>
-        <td>Average Trade Return</td>
-        <td>{{ backtest.avg_trade_return }}</td>
-    </tr>
-    <tr>
-        <td>Average Trade Duration</td>
-        <td>{{ backtest.avg_trade_duration }}</td>
-    </tr>
-</table>
+
+<div class="summary">
+    <table>
+        <tr>
+            <th>Metric</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Profit/Loss</td>
+            <td>{{ backtest.profit_loss }}</td>
+        </tr>
+        <tr>
+            <td>Sharpe Ratio</td>
+            <td>{{ backtest.sharpe_ratio }}</td>
+        </tr>
+        <tr>
+            <td>Sortino Ratio</td>
+            <td>{{ backtest.sortino_ratio }}</td>
+        </tr>
+        <tr>
+            <td>Maximum Drawdown</td>
+            <td>{{ backtest.max_drawdown }}</td>
+        </tr>
+        <tr>
+            <td>Average Trade Return</td>
+            <td>{{ backtest.avg_trade_return }}</td>
+        </tr>
+        <tr>
+            <td>Average Trade Duration</td>
+            <td>{{ backtest.avg_trade_duration }}</td>
+        </tr>
+    </table>
+</div>
 
 <h2>Trade History</h2>
-<table>
+<div class="filter">
+    <label for="tradeFilter">Filter by Asset:</label>
+    <input type="text" id="tradeFilter" onkeyup="filterTrades()" placeholder="Search for assets..">
+</div>
+<table id="tradeHistory">
     <tr>
         <th>Trade Date</th>
         <th>Trade Type</th>
@@ -69,4 +118,24 @@
         <td>{{ strategy.sharpe_ratio }}</td>
     </tr>
     {% endfor %}
-  </table>
+</table>
+
+<script>
+    function filterTrades() {
+        const input = document.getElementById('tradeFilter');
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById('tradeHistory');
+        const tr = table.getElementsByTagName('tr');
+
+        for (let i = 1; i < tr.length; i++) {
+            const td = tr[i].getElementsByTagName('td')[2]; // Asset column
+            if (td) {
+                const txtValue = td.textContent || td.innerText;
+                tr[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+            }
+        }
+    }
+</script>
+
+</body>
+    </html>
