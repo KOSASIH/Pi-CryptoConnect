@@ -11,7 +11,10 @@ from requests.exceptions import RequestException
 from email.mime.text import MIMEText
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='pi_network_launcher.log')
+logging.basicConfig(level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s', 
+                    filename='pi_network_launcher.log',
+                    filemode='a')  # Append mode
 
 # Load configuration from environment variables
 API_ENDPOINT = os.getenv("PI_API_ENDPOINT", "https://api.minepi.com")
@@ -43,7 +46,9 @@ def get_current_block_height():
     try:
         response = requests.get(f"{API_ENDPOINT}/blocks/latest", headers={"Authorization": f"Bearer {API_KEY}"})
         response.raise_for_status()  # Raise an error for bad responses
-        return response.json().get("height")
+        height = response.json().get("height")
+        logging.info(f"Current block height fetched: {height}")
+        return height
     except RequestException as e:
         logging.error(f"Error fetching current block height: {e}")
         return None
@@ -87,6 +92,7 @@ def check_api_health():
 # Main program
 def main():
     try:
+        logging.info("Starting Pi Network Launcher...")
         check_api_health()  # Check API health before proceeding
         wait_until_launch_conditions_met()  # Wait until launch conditions are met
         while True:
