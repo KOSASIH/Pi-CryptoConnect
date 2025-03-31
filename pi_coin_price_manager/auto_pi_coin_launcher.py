@@ -3,6 +3,7 @@ import time
 import ccxt
 import logging
 import smtplib
+import requests
 from email.mime.text import MIMEText
 from threading import Thread
 
@@ -88,6 +89,17 @@ def send_email_notification(subject, message):
     except Exception as e:
         logging.error(f"Failed to send email notification: {e}")
 
+# Function to set the Pi coin value on global exchanges
+def set_pi_coin_value(value):
+    url = "https://api.globalexchanges.com/set_value"
+    headers = {"Content-Type": "application/json"}
+    data = {"coin": "PI", "value": value}
+    response = requests.post(url, headers=headers, json=data)
+    if response.status_code == 200:
+        logging.info(f"Pi Coin set as stable Coin with value ${value:,.2f}")
+    else:
+        logging.error("Failed to set Pi coin value")
+
 # Function to monitor a single exchange
 def monitor_exchange(exchange_name, exchange):
     while True:
@@ -103,6 +115,9 @@ def monitor_exchange(exchange_name, exchange):
                 print(message)
                 logging.info(message)
                 send_email_notification("Target Value Reached", message)
+
+                # Set the Pi coin value on global exchanges
+                set_pi_coin_value(TARGET_VALUE)
 
         except ccxt.NetworkError as e:
             logging.error(f'Network error on {exchange_name}: {e}')
