@@ -1,5 +1,3 @@
-// utils/cryptoUtils.js
-
 import axios from 'axios';
 
 const COINGECKO_API_URL = 'https://api.coingecko.com/api/v3';
