@@ -1,4 +1,4 @@
-# security/encrypted_data_storage.py
+# encrypted_data_storage.py
 
 import cryptography
 from cryptography.hazmat.primitives import serialization
