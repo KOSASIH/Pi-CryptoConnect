@@ -1,4 +1,4 @@
-// apiUtils.js
+// src/utils/apiUtils.js
 
 import axios from 'axios';
 
