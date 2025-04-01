@@ -1,4 +1,4 @@
-// constants.js
+// src/utils/constants.js
 
 // Pi Coin Configuration - Unmatched, Unstoppable, and Ultra-Advanced
 const PI_COIN = {
