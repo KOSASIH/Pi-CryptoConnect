@@ -1,4 +1,4 @@
-// src/utils/api.js
+// utils/api.js
 
 import axios from 'axios';
 import NodeCache from 'node-cache';
